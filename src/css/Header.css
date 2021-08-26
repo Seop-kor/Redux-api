@@ -1,0 +1,21 @@
+/* Header Style Code */
+header{background:#547c61; padding:15px 0; z-index:1000; position:relative;}
+header a{font-size:18px; color:#fff;}
+header .center{display:flex; justify-content: space-between; align-items: center;}
+
+header.sticky{position:fixed; width:100%;}
+
+header .menu{position:absolute; top:100%; display:flex; flex-direction: column; z-index:1000; background:#547c61; right:5%; display:none;}
+header .menu a{width:50px; height:50px; display:flex; align-items: center; justify-content: center; border-top:1px solid #ccc;}
+
+.btn{width:50px; cursor:pointer;}
+span.bar_line{display:block; width:60%; box-shadow:0 2px 10px 0 rgba(0, 0, 0, 0.3); height:2px; background:#fff; transition:all 0.3s; position:relative; margin:auto; border-radius:2px;}
+span.bar_line:nth-child(2){margin:5px auto;}
+
+.btn.active span.bar_line:nth-child(1){animation:ease 0.5s top forwards;}
+.btn.active span.bar_line:nth-child(2){animation:ease 0.5s scaled forwards;}
+.btn.active span.bar_line:nth-child(3){animation:ease 0.5s bottom forwards;}
+
+.btn.not-active span.bar_line:nth-child(1){animation:ease 0.5s top-back forwards;}
+.btn.not-active span.bar_line:nth-child(2){animation:ease 0.5s scaled-back forwards;}
+.btn.not-active span.bar_line:nth-child(3){animation:ease 0.5s bottom-back forwards;}

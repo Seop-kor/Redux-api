@@ -1,0 +1,20 @@
+/* Contents Bar Style Code */
+.contents_bar{padding:70px 0;}
+.contents_bar .center{display:flex; justify-content: center; flex-direction: column;}
+.contents_bar .search_bar{display:flex; width:100%; justify-content: center; border:1px solid #547c61; border-radius:20px; background:#fff; align-items: center; position:relative; z-index:999;}
+.contents_bar .search_bar input{height:30px; padding:20px; width:80%;}
+.contents_bar .search_bar button{position:relative; width:20%; display:flex; justify-content: center; align-items: center;}
+.contents_bar .search_bar button:after{content:''; position:absolute; width:1px; background:#547c61; left:0; height:100%; top:0;}
+.contents_bar .search_bar button img{width:15px;}
+
+.contents_bar .drop_bar{width:100%; margin-top:10px; position:relative; z-index:999;}
+.contents_bar .drop_bar .dropdown{width:100%; background:#547c61; position:relative; font-size:14px; color:#fff; text-align:center; border-radius:20px; transition:all 0.3s;}
+.contents_bar .drop_bar .dropdown.on{border-radius:20px 20px 0 0;}
+
+.contents_bar .drop_bar .select{cursor:pointer; display:block; padding:15px 20px 15px 0;}
+.contents_bar .drop_bar .select span{display:inline-block; transform:translateX(10px); font-size:12px;}
+.contents_bar .drop_bar .select i{font-size:13px; cursor:pointer; float:right;}
+
+.contents_bar .dropdown_menu{position:absolute; width:100%; left:0; border:1px solid #547c61; background:#547c61; display:none;}
+.contents_bar .dropdown_menu li{padding:10px; cursor:pointer; transition:all 0.3s; border:1px solid #547c61; border-top:1px solid #ccc;}
+.contents_bar .dropdown_menu li a{width:100%; color:#fff ;font-size:12px;}

@@ -1,0 +1,70 @@
+/* Reset Style Code */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 99.9%;
+  overflow: hidden;
+}
+html#detail_html{overflow:auto;}
+a {
+  text-decoration: none;
+  color: #333;
+}
+ol,
+ul {
+  list-style: none;
+}
+img {
+  display: block;
+}
+input,
+button,
+textarea {
+  outline: 0;
+  border: 0;
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  border-radius: 0;
+  background: transparent;
+}
+input::placeholder {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 12px;
+}
+
+/* Main Layout Code */
+body {
+  font-family: "Roboto", "Noto Sans KR", sans-serif;
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body#detail_page{height:auto; overflow:auto;}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.center {
+  width: 90%;
+  height: auto;
+  margin: auto;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+}
+
+body#detail_page .wrap{overflow-y:auto; height:auto;}
+
+/* Background Image Style Code */
+.bg{position:absolute; left:0; bottom:0; transform:scale(1.1) translateY(70px); width:100%;}/*transform의 속성값을 중복해서 사용할 때는 값을 콤마 없이 공백으로 나열*/

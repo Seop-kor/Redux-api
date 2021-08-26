@@ -1,0 +1,9 @@
+/* Landing Animation Style Code */
+#landing{position:fixed;width:100%;height:100%;background:#547c61;z-index:1001;top:0;left:0;display:flex;flex-direction:column;align-items:center;justify-content: center;}
+#landing.start{animation:start 0.5s 1;animation-fill-mode: forwards;animation-delay:3s;}
+#landing .landing_logo{background:#fff;width:150px;height:150px;display:flex;align-items:center;justify-content: center;border-radius:50%;animation:scale-up 1s 1;}
+#landing .landing_logo img{width:60%;}
+#landing h2{color:#fff;font-weight:400;font-size: 16px;margin:10px 0;
+animation:show-up 1s 1;transform:translateY(200px);opacity:0;
+animation-fill-mode: forwards;animation-delay:1s;}
+#landing.started{top:-100%;}
