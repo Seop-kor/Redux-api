@@ -9,7 +9,7 @@ const containerStyle = {
 function GMap({latLon, itemlist}){
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyAY2LZ1jqRurbSAZfp9rFeKJt-aXJHCyzI"
+    googleMapsApiKey: "Google-map-api"
   });
 
   const [map, setMap] = React.useState(null);
