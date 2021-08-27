@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
+import jsonp from 'jsonp';
 import { setLoc, setKmVal } from 'moduls/locationModule';
 
 import IndexContainer from 'containers/IndexContainer';
@@ -40,7 +41,6 @@ function App() {
         queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
         queryParams += '&' + encodeURIComponent('keyword') + '=' + encodeURIComponent(query); /**/
         axios.get(url+queryParams).then(res => {
-          console.log('Key에서의 aPi호출임');
           dispatch(setLoc(res.data.response.body.items.item));
         }).catch(err => {
           alert(err);
@@ -63,10 +63,16 @@ function App() {
           queryParams += '&' + encodeURIComponent('mapX') + '=' + encodeURIComponent(lon); /**/
           queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent(lat); /**/
           queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent(radi); /**/
-          axios.get(url+queryParams).then(res => {
-            console.log('App에서의 값 호출임');
-            dispatch(setLoc(res.data.response.body.items.item));
-            dispatch(setKmVal(kmVal));
+          // axios.get(url+queryParams).then(res => {
+          //   dispatch(setLoc(res.data.response.body.items.item));
+          //   dispatch(setKmVal(kmVal));
+          // });
+          jsonp(url+queryParams, null, function(err, data){
+            if(err){
+              console.error(err.message);
+            }else{
+              console.log(data);
+            }
           });
         });
         return <SearchPosContainer history={history} latLon={latLon} />

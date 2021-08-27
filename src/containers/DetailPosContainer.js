@@ -9,7 +9,6 @@ function DetailPosContainer({history, mapX, mapY}){
     location: state.location.location
   }));
   const filterLocation = location.filter(i => i.mapX === mapX && i.mapY === mapY);
-  console.log('디테일에서의 필터 값 : ',filterLocation);
   let latLon = {lat: 37.082, lon: 127.0883};
   if(filterLocation.length > 0 && filterLocation !== undefined){
     latLon = {lat: filterLocation[0].mapY, lon: filterLocation[0].mapX};

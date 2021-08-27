@@ -26,7 +26,6 @@ function KeyPosContainer({history}){
   const {location} = useSelector(state => ({
     location: state.location.location
   }));
-  console.log("KeyPos에서의 현재 값 : ", location);
   let latLon = {lat: 0, lon: 0};
   if(location.length > 0 && location !== undefined){
     latLon = {lat: location[0].mapY, lon: location[0].mapX};
