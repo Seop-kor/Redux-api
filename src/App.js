@@ -32,7 +32,7 @@ function App() {
       }} />
       <Route exact path='/key' render={({history}) => {
         const query = get_query().key_val;
-        let url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; /*URL*/
+        let url = 'https://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; /*URL*/
         let queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'O5H9WBO3F1DUTXz9vUClI7YPQRpXaVEHjcuEeQnzxRUUebb%2FRbhtw54QV2t5FzNG%2Bkjio6Zsqea8HJRyeeqvTg%3D%3D'; /*Service Key*/
         queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
         queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
@@ -54,7 +54,7 @@ function App() {
           const radi = get_query().radi;
           const kmVal = radi ? radi.slice(0,2) : '';
           setLatLon({lat:lat, lon:lon});
-          let url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/locationBasedList'; /*URL*/
+          let url = 'https://api.visitkorea.or.kr/openapi/service/rest/GoCamping/locationBasedList'; /*URL*/
           let queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'O5H9WBO3F1DUTXz9vUClI7YPQRpXaVEHjcuEeQnzxRUUebb%2FRbhtw54QV2t5FzNG%2Bkjio6Zsqea8HJRyeeqvTg%3D%3D'; /*Service Key*/
           queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
           queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
