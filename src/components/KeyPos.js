@@ -7,7 +7,7 @@ import GMap from 'components/GMap';
 
 import 'css/KeyPos.css';
 
-function KeyPos({history, btBoxOnClick, itemlist}){
+function KeyPos({history, btBoxOnClick, itemlist, latLon}){
   const btBox = useRef(null);
   useEffect(() => {
     const h_bt_sl = btBox.current.children[0].getBoundingClientRect().height;
@@ -19,7 +19,7 @@ function KeyPos({history, btBoxOnClick, itemlist}){
     <Header history={history} />
 
     <div className="map_img" id="map">
-      <GMap itemlist={itemlist} />
+      <GMap itemlist={itemlist} latLon={latLon} />
       <img src="./img/gocamp_map.jpg" alt="" />
     </div>
 

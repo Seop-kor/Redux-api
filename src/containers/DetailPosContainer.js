@@ -9,7 +9,11 @@ function DetailPosContainer({history, mapX, mapY}){
     location: state.location.location
   }));
   const filterLocation = location.filter(i => i.mapX === mapX && i.mapY === mapY);
-  console.log(filterLocation);
+  console.log('디테일에서의 필터 값 : ',filterLocation);
+  let latLon = {lat: 37.082, lon: 127.0883};
+  if(filterLocation.length > 0 && filterLocation !== undefined){
+    latLon = {lat: filterLocation[0].mapY, lon: filterLocation[0].mapX};
+  }
   const detailBg = <><img src={filterLocation[0].firstImageUrl || './img/no_image.png'} alt="" /><span className="radi_bar"></span></>;
   const detailCon = (
     <div className="detail_wrap">
@@ -42,12 +46,12 @@ function DetailPosContainer({history, mapX, mapY}){
       <span className="line"></span>
       <h2 className="detail_tit">위치 지도</h2>
       <div className="detail_map" id="map">
-        <GMap itemlist={filterLocation} />
+        <GMap itemlist={filterLocation} latLon={latLon} />
       </div>
     </div>
   )
   return (
-    <DetailPos history={history} detailBg={detailBg} detailCon={detailCon} />
+    <DetailPos history={history} itemlist={filterLocation} latLon={latLon} />
   );
 }
 

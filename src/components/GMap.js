@@ -9,23 +9,20 @@ const containerStyle = {
 function GMap({latLon, itemlist}){
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
-    googleMapsApiKey: "Google-Api-Key"
+    googleMapsApiKey: "AIzaSyAY2LZ1jqRurbSAZfp9rFeKJt-aXJHCyzI"
   });
 
   const [map, setMap] = React.useState(null);
 
-  // const center = {
-    // lat: Number(latLon.lat),
-    // lng: Number(latLon.lon)
-  // };
-  // const center = latLon ? {lat: Number(latLon.lat), lng: Number(latLon.lon)} : {lat: Number(itemlist[0].mapY), lng: Number(itemlist[0].mapX)};
-  const center = latLon ? {lat: Number(latLon.lat), lng: Number(latLon.lon)} : itemlist.length > 0 ? {lat: Number(itemlist[0].mapY), lng: Number(itemlist[0].mapX)} : {lat: 0, lng: 0};
-  console.log("center : ", center);
+  const center = {
+    lat: Number(latLon.lat),
+    lng: Number(latLon.lon)
+  };
 
   const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map)
+    // const bounds = new window.google.maps.LatLngBounds();
+    // map.fitBounds(bounds);
+    setMap(map);
   }, []);
 
   const onUnmount = React.useCallback(function callback(map) {

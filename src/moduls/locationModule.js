@@ -16,7 +16,7 @@ export default function location(state = initialState, action){
     case SET_LOC:
       return {
         ...state,
-        location: action.loc
+        location: Array.isArray(action.loc) ? action.loc : [action.loc]
       };
     case SET_KMVAL:
       return {

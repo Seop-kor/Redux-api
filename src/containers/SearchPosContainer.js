@@ -40,7 +40,7 @@ function SearchPosContainer({history, latLon}){
     location: state.location.location,
     kmVal: state.location.kmVal
   }));
-  console.log(location);
+  console.log('Search에서의 현재 값 : ',location);
   const kmmessage = kmVal+'KM 반경 캠핑장';
   return (
     <SearchPos btBoxOnClick={btBoxOnClick} history={history} itemlist={location} kmVal={kmmessage} latLon={latLon} dropOnClick={dropOnClick} />

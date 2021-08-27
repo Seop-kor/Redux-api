@@ -40,6 +40,7 @@ function App() {
         queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
         queryParams += '&' + encodeURIComponent('keyword') + '=' + encodeURIComponent(query); /**/
         axios.get(url+queryParams).then(res => {
+          console.log('Key에서의 aPi호출임');
           dispatch(setLoc(res.data.response.body.items.item));
         }).catch(err => {
           alert(err);
@@ -51,7 +52,7 @@ function App() {
           const lat = position.coords.latitude;
           const lon = position.coords.longitude;
           const radi = get_query().radi;
-          const kmVal = radi.slice(0, 2);
+          const kmVal = radi ? radi.slice(0,2) : '';
           setLatLon({lat:lat, lon:lon});
           let url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/locationBasedList'; /*URL*/
           let queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'O5H9WBO3F1DUTXz9vUClI7YPQRpXaVEHjcuEeQnzxRUUebb%2FRbhtw54QV2t5FzNG%2Bkjio6Zsqea8HJRyeeqvTg%3D%3D'; /*Service Key*/
@@ -63,6 +64,7 @@ function App() {
           queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent(lat); /**/
           queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent(radi); /**/
           axios.get(url+queryParams).then(res => {
+            console.log('App에서의 값 호출임');
             dispatch(setLoc(res.data.response.body.items.item));
             dispatch(setKmVal(kmVal));
           });
