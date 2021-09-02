@@ -79,7 +79,8 @@ function App() {
           queryParams += '&' + encodeURIComponent('radi') + '=' + encodeURIComponent(radi);
 
           axios.get(url+queryParams).then(res => {
-            console.log(res.data.response.body.items.item);
+            dispatch(setLoc(res.data.response.body.items.item));
+            dispatch(setKmVal(kmVal));
           }).catch(err => {
             alert(err);
           });
