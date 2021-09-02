@@ -22,6 +22,11 @@ const btBoxOnClick = (btBox) => {
   }
 };
 
+const keyBtnOnClick = (keyInput, history) => {
+  const key_val =  keyInput.current.value;
+  history.push('/key?key_val='+key_val);
+};
+
 function KeyPosContainer({history}){
   const {location} = useSelector(state => ({
     location: state.location.location
@@ -31,7 +36,7 @@ function KeyPosContainer({history}){
     latLon = {lat: location[0].mapY, lon: location[0].mapX};
   }
   return (
-    <KeyPos history={history} btBoxOnClick={btBoxOnClick} itemlist={location} latLon={latLon} />
+    <KeyPos history={history} btBoxOnClick={btBoxOnClick} itemlist={location} latLon={latLon} keybtnOnclick={keyBtnOnClick} />
   );
 }
 

@@ -7,8 +7,9 @@ import GMap from 'components/GMap';
 
 import 'css/KeyPos.css';
 
-function KeyPos({history, btBoxOnClick, itemlist, latLon}){
+function KeyPos({history, btBoxOnClick, itemlist, latLon, keybtnOnclick}){
   const btBox = useRef(null);
+  const keyBtn = useRef(null);
   useEffect(() => {
     const h_bt_sl = btBox.current.children[0].getBoundingClientRect().height;
     const h_bt_box = btBox.current.getBoundingClientRect().height;
@@ -26,8 +27,8 @@ function KeyPos({history, btBoxOnClick, itemlist, latLon}){
     <div className="contents_bar search_position">
       <div className="center">
         <div className="search_bar">
-          <input type="text" placeholder="검색할 키워드를 입력해 주세요." />
-          <button><img src="./img/gocamp_icon.png" alt="" /></button>
+          <input type="text" placeholder="검색할 키워드를 입력해 주세요." ref={keyBtn} />
+          <button onClick={keybtnOnclick.bind(this, keyBtn, history)}><img src="./img/gocamp_icon.png" alt="" /></button>
         </div>
       </div>
     </div>
