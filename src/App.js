@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import jsonp from 'jsonp';
 import { setLoc, setKmVal } from 'moduls/locationModule';
 
 import IndexContainer from 'containers/IndexContainer';
@@ -33,13 +32,20 @@ function App() {
       }} />
       <Route exact path='/key' render={({history}) => {
         const query = get_query().key_val;
-        let url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; /*URL*/
-        let queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'O5H9WBO3F1DUTXz9vUClI7YPQRpXaVEHjcuEeQnzxRUUebb%2FRbhtw54QV2t5FzNG%2Bkjio6Zsqea8HJRyeeqvTg%3D%3D'; /*Service Key*/
-        queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-        queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
-        queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
-        queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
-        queryParams += '&' + encodeURIComponent('keyword') + '=' + encodeURIComponent(query); /**/
+        // let url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/searchList'; /*URL*/
+        // let queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'O5H9WBO3F1DUTXz9vUClI7YPQRpXaVEHjcuEeQnzxRUUebb%2FRbhtw54QV2t5FzNG%2Bkjio6Zsqea8HJRyeeqvTg%3D%3D'; /*Service Key*/
+        // queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+        // queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+        // queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
+        // queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
+        // queryParams += '&' + encodeURIComponent('keyword') + '=' + encodeURIComponent(query); /**/
+        // axios.get(url+queryParams).then(res => {
+        //   dispatch(setLoc(res.data.response.body.items.item));
+        // }).catch(err => {
+        //   alert(err);
+        // });
+        let url = 'https://apiseop.site/sv/key';
+        let queryParams = '?' + encodeURIComponent('keyword') + '=' + query;
         axios.get(url+queryParams).then(res => {
           dispatch(setLoc(res.data.response.body.items.item));
         }).catch(err => {
@@ -54,25 +60,28 @@ function App() {
           const radi = get_query().radi;
           const kmVal = radi ? radi.slice(0,2) : '';
           setLatLon({lat:lat, lon:lon});
-          let url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/locationBasedList'; /*URL*/
-          let queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'O5H9WBO3F1DUTXz9vUClI7YPQRpXaVEHjcuEeQnzxRUUebb%2FRbhtw54QV2t5FzNG%2Bkjio6Zsqea8HJRyeeqvTg%3D%3D'; /*Service Key*/
-          queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-          queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
-          queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
-          queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
-          queryParams += '&' + encodeURIComponent('mapX') + '=' + encodeURIComponent(lon); /**/
-          queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent(lat); /**/
-          queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent(radi); /**/
+          // let url = 'http://api.visitkorea.or.kr/openapi/service/rest/GoCamping/locationBasedList'; /*URL*/
+          // let queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'O5H9WBO3F1DUTXz9vUClI7YPQRpXaVEHjcuEeQnzxRUUebb%2FRbhtw54QV2t5FzNG%2Bkjio6Zsqea8HJRyeeqvTg%3D%3D'; /*Service Key*/
+          // queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+          // queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+          // queryParams += '&' + encodeURIComponent('MobileOS') + '=' + encodeURIComponent('ETC'); /**/
+          // queryParams += '&' + encodeURIComponent('MobileApp') + '=' + encodeURIComponent('AppTest'); /**/
+          // queryParams += '&' + encodeURIComponent('mapX') + '=' + encodeURIComponent(lon); /**/
+          // queryParams += '&' + encodeURIComponent('mapY') + '=' + encodeURIComponent(lat); /**/
+          // queryParams += '&' + encodeURIComponent('radius') + '=' + encodeURIComponent(radi); /**/
           // axios.get(url+queryParams).then(res => {
           //   dispatch(setLoc(res.data.response.body.items.item));
           //   dispatch(setKmVal(kmVal));
           // });
-          jsonp(url+queryParams, null, function(err, data){
-            if(err){
-              console.error(err.message);
-            }else{
-              console.log(data);
-            }
+          let url = 'https://apiseop.site/sv/search';
+          let queryParams = '?' + encodeURIComponent('lon') + '=' + encodeURIComponent(lon);
+          queryParams += '&' + encodeURIComponent('lat') + '=' + encodeURIComponent(lat);
+          queryParams += '&' + encodeURIComponent('radi') + '=' + encodeURIComponent(radi);
+
+          axios.get(url+queryParams).then(res => {
+            console.log(res.data.response.body.items.item);
+          }).catch(err => {
+            alert(err);
           });
         });
         return <SearchPosContainer history={history} latLon={latLon} />
