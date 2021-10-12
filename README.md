@@ -1,71 +1,43 @@
-# Getting Started with Create React App
+# Go! Camp Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 공공데이터 중 캠핑장 데이터와 Redux를 사용한 웹 사이트
+> 
 
-## Available Scripts
+![Untitled](./img/Untitled.png)
 
-In the project directory, you can run:
+navigator.getCurrentPosition 함수를 이용해 현재 위치를 받아온 후
 
-### `yarn start`
+- 10km
+- 20km
+- 30km
+- 40km
+- 50km
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+의 거리를 설정해 주변에 있는 캠핑장을 Store에 저장 후 구글맵에 마커로 표시하고 각 캠핑장의 대략적인 정보를 표시해준다.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Untitled](./img/Untitled%201.png)
 
-### `yarn test`
+키워드를 검색해 키워드에 맞는 캠핑장을 Store에 저장 후 구글맵에 마커로 표시하고 각 캠핑장의 정보를 표시해준다. (현재는 한강을 검색함)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Untitled](./img/Untitled%202.png)
 
-### `yarn build`
+캠핑장의 정보를 클릭하게 되면 더 자세한 정보를 얻을 수 있도록 했다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Hosting Site](https://apiseop.site)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech
 
-### `yarn eject`
+### Front
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- React
+- CSS
+- Javascript
+- Redux
+- Google Map API
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Back
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Redux-api
+- Spring Boot
+- 공공데이터 API
